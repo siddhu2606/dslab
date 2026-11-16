@@ -40,7 +40,7 @@ def train(df, model_name, test_size, seed):
     y = df[TARGET]
     Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=test_size, random_state=seed, stratify=y)
     if model_name == "Random Forest":
-        m = RandomForestClassifier(n_estimators=300, random_state=seed, n_jobs=-1)
+        m = RandomForestClassifier(n_estimators=150, random_state=seed)
     else:
         m = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000))
     m.fit(Xtr, ytr)
